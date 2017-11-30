@@ -28,12 +28,15 @@ class API {
     static let instance = API()
     
     /// Log
+    
     let log = SwiftyBeaver.self
     
     ///Temp debugger flag
     static let debug = true
-    static let defaultSetType = BaseSetType.Home
-
+    static let defaultSetType = BaseSetType.Collections
+    
+    public typealias selectedAPISet = ((APISet?) -> ())
+    
     ///API Class constants
     fileprivate struct Consts {
         static let baseURL = API.debug == true ? "http://feature-code-test.skylark-cms.qa.aws.ostmodern.co.uk:8000" : "http://featore-code-test.skylurk-cms.qa.aws.ostmodern.co.uk:8080"
@@ -43,18 +46,28 @@ class API {
      Get sets
      */
     func getSets (completion : @escaping (_ isSuccess : Bool, _ set : [APISet]?) -> Void) {
-        
         let apiString = "\(Consts.baseURL)/api/sets/"
         log.verbose("Getting sets with URL \(apiString)")
         
         /// Request
-        Alamofire.request(apiString).responseJSON { response in
+        Alamofire.request(apiString).responseJSON { [weak self] response in
             
-            self.log.verbose("Response for getting sets \(response.response.debugDescription)")
+            self?.log.verbose("Response for getting sets \(response.response.debugDescription)")
             
-            if let _ = response.result.value {
+            guard let response = response.result.value else {
                 completion(false, nil)
+                return
             }
+            
+            let json = JSON(response)
+            let apiSet = self?.parseSetJSON(json: json)
+            
+            guard apiSet != nil else {
+                completion(false, nil)
+                return
+            }
+            
+            completion(true, apiSet)
         }
     }
     
@@ -92,16 +105,40 @@ class API {
             }
         }
     }
+    
+    //MARK: - Parse set data
+    private func parseSetJSON(json: JSON) -> [APISet]? {
+        guard let setArray = APISet.parse(json) else {
+            return nil
+        }
+        
+        return setArray
+    }
 }
 
 
 extension API {
     /// Gets a set for a given type.
-    func getSet(forName name: BaseSetType = API.defaultSetType, fromSets sets: [APISet]) -> APISet? {
-        let selectedSet = sets.filter {
-                $0.title == name.rawValue
+    func getSet(forName name: BaseSetType = API.defaultSetType, completion: @escaping selectedAPISet) {
+        var selectedSet: [APISet]?
+        
+        getSets { (success, sets) in
+            guard
+                success == true,
+                sets != nil else {
+                return
+            }
+            
+            selectedSet = sets?.filter { $0.title == name.rawValue }
+            
+            guard let set = selectedSet?.first else {
+                completion(nil)
+                return
+            }
+            
+            completion(set)
         }
-
-        return selectedSet.first
+        
+        completion(nil)
     }
 }

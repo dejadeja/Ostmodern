@@ -47,10 +47,23 @@ class RootViewController: UIViewController {
     
     //MARK: - Set Up datasource
     private func initaliseDataSource() {
-        //TODO: - Take from realm
-        
-        
-        
+        API.instance.getSets { [weak self] (success, apiSets) in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            guard
+                let sets = apiSets,
+                !sets.isEmpty else {
+                    strongSelf.loadingView.isHidden = true
+                    strongSelf.errorView.isHidden = false
+                    return
+            }
+            
+            strongSelf.errorView.isHidden = true
+            strongSelf.loadingView.isHidden = true
+            strongSelf.presentSetViewController()
+        }
     }
     
     //MARK: - Present Set ViewController

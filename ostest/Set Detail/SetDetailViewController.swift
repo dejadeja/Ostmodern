@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
+class SetDetailViewController: UIViewController {
+    //MARK: - IBOutlets
+    
+    //MARK: - Properties
+    
+    //MARK: - View Lifecycle
+    
+    //MARK: - Navigation
+}

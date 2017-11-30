@@ -10,12 +10,156 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ostest/API/API.swift"
-            timestampString = "533757667.501187"
+            timestampString = "533774262.294788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "getSets(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ostest/API/API.swift"
+            timestampString = "533774262.294888"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "getSet(forName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ostest/API/API.swift"
+            timestampString = "533774262.29495"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "getSet(forName:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ostmodern.API.getSet(forName: Ostmodern.BaseSetType, completion: (Swift.Optional&lt;Ostmodern.APISet&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ostmodern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dejacespedes/Desktop/Apps/Technical%20Tests/Ostmodern/ostest/API/API.swift"
+                  timestampString = "533773212.260918"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "121">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Array&lt;Ostmodern.APISet&gt;&gt;) -&gt; () in Ostmodern.API.getSet(forName: Ostmodern.BaseSetType, completion: (Swift.Optional&lt;Ostmodern.APISet&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ostmodern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dejacespedes/Desktop/Apps/Technical%20Tests/Ostmodern/ostest/API/API.swift"
+                  timestampString = "533773212.275149"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "42">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ostest/API/API.swift"
+            timestampString = "533774262.295002"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "getSets(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in Ostmodern.API.getSets(completion: (Swift.Bool, Swift.Optional&lt;Swift.Array&lt;Ostmodern.APISet&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ostmodern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dejacespedes/Desktop/Apps/Technical%20Tests/Ostmodern/ostest/API/API.swift"
+                  timestampString = "533774262.405066"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "62">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () -&gt; Any in closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in Ostmodern.API.getSets(completion: (Swift.Bool, Swift.Optional&lt;Swift.Array&lt;Ostmodern.APISet&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Ostmodern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dejacespedes/Desktop/Apps/Technical%20Tests/Ostmodern/ostest/API/API.swift"
+                  timestampString = "533774262.407574"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "17">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ostest/API/API.swift"
+            timestampString = "533774262.295054"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "getSets(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ostest/Root View Controller/RootViewController.swift"
+            timestampString = "533774262.295103"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "initaliseDataSource()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

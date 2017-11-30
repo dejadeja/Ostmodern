@@ -30,6 +30,7 @@
 		0E4997601FD076E600716418 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E49975F1FD076E600716418 /* LoadingView.swift */; };
 		0E4997621FD076F500716418 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4997611FD076F500716418 /* ErrorView.swift */; };
 		0E4997641FD0777F00716418 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E4997631FD0777F00716418 /* Default-568h@2x.png */; };
+		0E6010701FD0BEDF009D52D5 /* RealmSetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E60106F1FD0BEDF009D52D5 /* RealmSetDataSource.swift */; };
 		139374CF792B15DB829089CE /* Pods_ostest_ostestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B951A46AB1EA30E1292E23A /* Pods_ostest_ostestUITests.framework */; };
 		4BFB92DBBD4E96782A86EB30 /* Pods_ostest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7BF28D9EE44448429931BC8 /* Pods_ostest.framework */; };
 		ACC3CF098F399C5E3F527863 /* Pods_ostest_ostestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F756F1915AE0240733C896DE /* Pods_ostest_ostestTests.framework */; };
@@ -82,6 +83,7 @@
 		0E49975F1FD076E600716418 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = "Root View Controller/Views/LoadingView.swift"; sourceTree = "<group>"; };
 		0E4997611FD076F500716418 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorView.swift; path = "Root View Controller/Views/ErrorView.swift"; sourceTree = "<group>"; };
 		0E4997631FD0777F00716418 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0E60106F1FD0BEDF009D52D5 /* RealmSetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmSetDataSource.swift; path = Database/RealmSetDataSource.swift; sourceTree = "<group>"; };
 		1917A0C96A8826354AA5DBF1 /* Pods-ostest-ostestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ostest-ostestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ostest-ostestTests/Pods-ostest-ostestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B951A46AB1EA30E1292E23A /* Pods_ostest_ostestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ostest_ostestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9500227F4973B51371FF74 /* Pods-ostest-ostestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ostest-ostestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ostest-ostestTests/Pods-ostest-ostestTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				006314751E657A3B00431015 /* Database.swift */,
 				0063147B1E65B84F00431015 /* RealmSet.swift */,
+				0E60106F1FD0BEDF009D52D5 /* RealmSetDataSource.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -379,7 +382,8 @@
 				TargetAttributes = {
 					00A3E2251E649A67002482EE = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = KDS37953W7;
+						ProvisioningStyle = Automatic;
 					};
 					00A3E2391E649A67002482EE = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -641,6 +645,7 @@
 				006314761E657A3B00431015 /* Database.swift in Sources */,
 				006314791E657DED00431015 /* APISet.swift in Sources */,
 				0025DE071E65D64A005C7363 /* SetViewController.swift in Sources */,
+				0E6010701FD0BEDF009D52D5 /* RealmSetDataSource.swift in Sources */,
 				0E4997601FD076E600716418 /* LoadingView.swift in Sources */,
 				0E49975B1FD0734E00716418 /* FavouritesCell.swift in Sources */,
 				0063147C1E65B84F00431015 /* RealmSet.swift in Sources */,
@@ -805,8 +810,9 @@
 			baseConfigurationReference = BD0732DC2533A5672E8CD41F /* Pods-ostest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KDS37953W7;
 				INFOPLIST_FILE = ostest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ostermodern.ostest;
@@ -821,8 +827,9 @@
 			baseConfigurationReference = D45FB7F54F40BD3A0497E2E3 /* Pods-ostest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KDS37953W7;
 				INFOPLIST_FILE = ostest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ostermodern.ostest;

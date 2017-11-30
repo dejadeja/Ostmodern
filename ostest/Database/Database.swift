@@ -21,6 +21,20 @@ class Database {
     /// Log
     let log = SwiftyBeaver.self
     
-    //TODO: - SAVE DATA WITH DATE AND TIME
+    //MARK: - Save movie sets to Realm
+    static func saveSetData(movieSet: [Movie]) {
+        movieSet.forEach { set in
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(set)
+            }
+        }
+    }
     
+    //MARK: - Get items from Realm
+    static func getSetData() -> Results<Movie> {
+        let realm = try! Realm()
+        let items = realm.objects(Movie.self)
+        return items
+    }
 }

@@ -14,106 +14,91 @@ import SwiftyBeaver
 /**
  Shows the list of Sets
  */
+// Shows the list of Sets
 final class SetViewController : UIViewController {
-  
-  /// Table View
-  @IBOutlet private weak var tblView : UITableView?
-  
-  /// Activity loader for the table vie
-  @IBOutlet private weak var activity : UIActivityIndicatorView?
-  
-  /// Log
-  let log = SwiftyBeaver.self
-  
-  /// The movies set data
-  fileprivate var data : Results<Movie>?
-  
-  /**
-   Setup the view
-   */
-  override func viewDidLoad() {
-    super.viewDidLoad()
+    //MARK: - IBOutlets
+    @IBOutlet private weak var tblView : UITableView? {
+        didSet {
+            tblView?.register( UINib(nibName: "SetViewCell", bundle: nil), forCellReuseIdentifier: NSStringFromClass(SetViewCell.self))
+            tblView?.delegate = self
+            tblView?.dataSource = self
+        }
+    }
     
-    /// Setup view for loading
-    self.setupLoading(isLoading: true)
+    @IBOutlet private weak var activity : UIActivityIndicatorView?
     
-    /// Call to setup the data
-    self.setupData()
-  }
-  
-  /**
-   Setup loading
-   
-   - parameter isLoading
-   */
-  func setupLoading (isLoading : Bool) {
-    UIView.animate(withDuration: 0.3, delay: 0.0, options: .beginFromCurrentState, animations: {
-      self.activity?.alpha = isLoading ? 1.0 : 0.0
-      self.tblView?.alpha = isLoading ? 0.0 : 1.0
-    }) { (_) in }
-  }
-  
-  
-  /**
-   Set's up the data for the table view
-   */
-  func setupData () {
-  }
+    //MARK: - Properties
+    let log = SwiftyBeaver.self
+    fileprivate var dataSource: RealmSetDataSource!
+    
+    //MARK: - View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //self.setupLoading(isLoading: false)
+        self.setupData()
+    }
+    
+    //MARK: - Loading...
+    private func setupLoading (isLoading : Bool) {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .beginFromCurrentState, animations: {
+            self.activity?.alpha = isLoading ? 1.0 : 0.0
+            self.tblView?.alpha = isLoading ? 0.0 : 1.0
+        }) { (_) in }
+    }
+    
+    //MARK: - Initialise DataSource
+    
+    /// Set's up the data for the table view
+    public func setupData () {
+        let data : Results<Movie> = Database.getSetData()
+        dataSource = RealmSetDataSource(movies: data)
+        tblView?.reloadData()
+    }
 }
 
-
-/**
- Table View datasource
- */
+///MARK: - UITableViewDataSource Implementation
 extension SetViewController : UITableViewDataSource {
-  
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-    /// Get the cell
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: SetViewCell.identifier) as? SetViewCell else {
-      return UITableViewCell()
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.numberOfMovies
     }
     
-    /// Set the data
-    if let data = self.data?[indexPath.row] {
-      
-      /// Background image
-      if let urlString = data.imageURLs.first?.url,
-        let url = URL(string: urlString) {
-        cell.imgBackground?.af_setImage(withURL: url)
-      }
-      
-      /// Title
-      cell.lblTitle?.text = data.title
-      
-      /// Description
-      cell.txtDescription?.text = data.summary
-      
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(SetViewCell.self)) as? SetViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.lblTitle?.text = dataSource.titleOfMovie(atIndex: indexPath.row)
+        cell.txtDescription?.text = dataSource.summaryOfMovie(atIndex: indexPath.row)
+        
+        if let imageURL = dataSource.imageURLForMovie(atIndex: indexPath.row) {
+            DispatchQueue.main.async {
+                cell.imgBackground?.af_setImage(withURL: imageURL)
+            }
+        }
+        
+        return cell
     }
     
-    /// Return the cell
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    /// Default
-    return 180.0
-  }
-  
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180.0
+    }
 }
 
-
-/**
- Table view delegate
- */
+///MARK: - UITableViewDelegate Implementation
 extension SetViewController : UITableViewDelegate {
-  
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       /* guard
+            let navigationController = UIStoryboard(name: "SetInformation", bundle: nil).instantiateInitialViewController() as? UINavigationController,
+            let setInformationViewController = navigationController.viewControllers.first as? SetInformationViewController else {
+                return
+        }
+        
+        guard let selectedSet = dataSource.episodeInformation(atIndex: indexPath.row) else {
+            return
+        }
+        
+        let selectedSetViewModel = SetInformationDataSource(setInfo: selectedSet)
+        setInformationViewController.setInformationDataSource = selectedSetViewModel
+        self.present(navigationController, animated: true, completion: nil)*/
+    }
 }
