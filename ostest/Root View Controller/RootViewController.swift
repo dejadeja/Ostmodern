@@ -47,7 +47,10 @@ class RootViewController: UIViewController {
     
     //MARK: - Set Up datasource
     private func initaliseDataSource() {
-
+        //TODO: - Take from realm
+        
+        
+        
     }
     
     //MARK: - Present Set ViewController
