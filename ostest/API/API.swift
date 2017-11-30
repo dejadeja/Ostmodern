@@ -38,7 +38,7 @@ class API {
     public typealias selectedAPISet = ((APISet?) -> ())
     
     ///API Class constants
-    fileprivate struct Consts {
+    public struct Consts {
         static let baseURL = API.debug == true ? "http://feature-code-test.skylark-cms.qa.aws.ostmodern.co.uk:8000" : "http://featore-code-test.skylurk-cms.qa.aws.ostmodern.co.uk:8080"
     }
     
@@ -67,6 +67,7 @@ class API {
                 return
             }
             
+            self?.parseSetToRealmObject(apiSet: apiSet!)
             completion(true, apiSet)
         }
     }
@@ -77,7 +78,7 @@ class API {
      - parameter set: The APISet to convert
      - returns: APISet
      */
-    func updateSet (set : APISet, completion : @escaping (_ isSuccess : Bool, _ set : APISet?) -> Void) {
+    func updateSet(set : APISet, completion : @escaping (_ isSuccess : Bool, _ set : APISet?) -> Void) {
         
         guard let apiString = set.imageURLs.first else {
             return
@@ -113,6 +114,17 @@ class API {
         }
         
         return setArray
+    }
+    
+    private func parseSetToRealmObject(apiSet: [APISet]) {
+        var movies: [Movie] = []
+        
+        apiSet.forEach { set in
+            let movie = Movie.initMovie(from: set as APISet)
+            movies.append(movie)
+        }
+        
+        Database.saveSetData(movieSet: movies)
     }
 }
 

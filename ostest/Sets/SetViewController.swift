@@ -58,6 +58,10 @@ final class SetViewController : UIViewController {
 
 ///MARK: - UITableViewDataSource Implementation
 extension SetViewController : UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.numberOfMovies
     }
@@ -87,9 +91,9 @@ extension SetViewController : UITableViewDataSource {
 ///MARK: - UITableViewDelegate Implementation
 extension SetViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       /* guard
-            let navigationController = UIStoryboard(name: "SetInformation", bundle: nil).instantiateInitialViewController() as? UINavigationController,
-            let setInformationViewController = navigationController.viewControllers.first as? SetInformationViewController else {
+        guard
+            let navigationController = UIStoryboard(name: "SetDetail", bundle: nil).instantiateInitialViewController() as? UINavigationController,
+            let setInformationViewController = navigationController.viewControllers.first as? SetDetailViewController else {
                 return
         }
         
@@ -97,8 +101,8 @@ extension SetViewController : UITableViewDelegate {
             return
         }
         
-        let selectedSetViewModel = SetInformationDataSource(setInfo: selectedSet)
-        setInformationViewController.setInformationDataSource = selectedSetViewModel
-        self.present(navigationController, animated: true, completion: nil)*/
+        let selectedSetViewModel = SetDetailDataSource(setDetail: selectedSet)
+        setInformationViewController.setDetailDataSource = selectedSetViewModel
+        self.present(navigationController, animated: true, completion: nil)
     }
 }

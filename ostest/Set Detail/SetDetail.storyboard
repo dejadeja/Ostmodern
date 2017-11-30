@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eEI-pw-7Yg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,11 +10,16 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="CalibreWeb-Light.ttf">
+            <string>CopyrightKlimTypeFoundry-NotLicensedforDesktopUse</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Episode Details-->
         <scene sceneID="Ybx-wN-pof">
             <objects>
-                <viewController id="gDB-bB-jGa" sceneMemberID="viewController">
+                <viewController id="gDB-bB-jGa" customClass="SetDetailViewController" customModule="Ostmodern" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yLJ-JW-qEj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,16 +43,16 @@
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqI-Ti-g3i">
-                                <rect key="frame" x="10" y="341" width="99" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="10" y="341" width="118.5" height="26"/>
+                                <fontDescription key="fontDescription" name="CopyrightKlimTypeFoundry-NotLicensedforDesktopUse" family="Copyright Klim Type Foundry" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Eq9-FE-5Oi">
-                                <rect key="frame" x="10" y="372" width="355" height="285"/>
+                                <rect key="frame" x="10" y="377" width="355" height="280"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="CopyrightKlimTypeFoundry-NotLicensedforDesktopUse" family="Copyright Klim Type Foundry" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -67,8 +72,17 @@
                         <viewLayoutGuide key="safeArea" id="Wq0-HW-A2u"/>
                     </view>
                     <navigationItem key="navigationItem" title="Episode Details" id="u7D-0t-YFF">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="hbh-aP-gIm"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="hbh-aP-gIm">
+                            <connections>
+                                <action selector="dismiss" destination="gDB-bB-jGa" id="ZE7-TO-Htt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="episodeDescription" destination="Eq9-FE-5Oi" id="7y8-pJ-SDC"/>
+                        <outlet property="episodeImageView" destination="PaS-kO-GIm" id="74z-3B-b0w"/>
+                        <outlet property="episodeTitle" destination="OqI-Ti-g3i" id="BPy-na-AF8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qum-SP-4PQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

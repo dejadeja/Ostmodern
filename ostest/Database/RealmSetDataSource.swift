@@ -51,16 +51,16 @@ extension RealmSetDataSource {
         return imageURL
     }
     
-    /*public func episodeInformation(atIndex index: Int) -> SetInformation? {
+    public func episodeInformation(atIndex index: Int) -> SetDetail? {
         guard
             let setTitle = object(atIndex: index)?.title,
             let setDescription = object(atIndex: index)?.setDescription else {
                 return nil
         }
         
-        let setInformation: SetInformation = SetInformation(title: setTitle, description: setDescription)
+        let setInformation: SetDetail = SetDetail(title: setTitle, description: setDescription)
         return setInformation
-    }*/
+    }
     
     private func object(atIndex index: Int) -> Movie? {
         return movies?[index]
