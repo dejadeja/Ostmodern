@@ -27,6 +27,9 @@
 		0E4997581FD0732400716418 /* SetDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E4997571FD0732400716418 /* SetDetail.storyboard */; };
 		0E49975B1FD0734E00716418 /* FavouritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E49975A1FD0734E00716418 /* FavouritesCell.swift */; };
 		0E49975D1FD0739A00716418 /* FavouritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E49975C1FD0739A00716418 /* FavouritesCell.xib */; };
+		0E4997601FD076E600716418 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E49975F1FD076E600716418 /* LoadingView.swift */; };
+		0E4997621FD076F500716418 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4997611FD076F500716418 /* ErrorView.swift */; };
+		0E4997641FD0777F00716418 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E4997631FD0777F00716418 /* Default-568h@2x.png */; };
 		139374CF792B15DB829089CE /* Pods_ostest_ostestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B951A46AB1EA30E1292E23A /* Pods_ostest_ostestUITests.framework */; };
 		4BFB92DBBD4E96782A86EB30 /* Pods_ostest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7BF28D9EE44448429931BC8 /* Pods_ostest.framework */; };
 		ACC3CF098F399C5E3F527863 /* Pods_ostest_ostestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F756F1915AE0240733C896DE /* Pods_ostest_ostestTests.framework */; };
@@ -76,6 +79,9 @@
 		0E4997571FD0732400716418 /* SetDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = SetDetail.storyboard; path = "Set Detail/SetDetail.storyboard"; sourceTree = "<group>"; };
 		0E49975A1FD0734E00716418 /* FavouritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouritesCell.swift; path = Favourites/FavouritesCell.swift; sourceTree = "<group>"; };
 		0E49975C1FD0739A00716418 /* FavouritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FavouritesCell.xib; path = Favourites/FavouritesCell.xib; sourceTree = "<group>"; };
+		0E49975F1FD076E600716418 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = "Root View Controller/Views/LoadingView.swift"; sourceTree = "<group>"; };
+		0E4997611FD076F500716418 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorView.swift; path = "Root View Controller/Views/ErrorView.swift"; sourceTree = "<group>"; };
+		0E4997631FD0777F00716418 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1917A0C96A8826354AA5DBF1 /* Pods-ostest-ostestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ostest-ostestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ostest-ostestTests/Pods-ostest-ostestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B951A46AB1EA30E1292E23A /* Pods_ostest_ostestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ostest_ostestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9500227F4973B51371FF74 /* Pods-ostest-ostestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ostest-ostestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ostest-ostestTests/Pods-ostest-ostestTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 		00A3E21D1E649A67002482EE = {
 			isa = PBXGroup;
 			children = (
+				0E4997631FD0777F00716418 /* Default-568h@2x.png */,
 				00A3E2281E649A67002482EE /* ostest */,
 				0099B02A1E6610EF00AF914A /* Fonts */,
 				00A3E23D1E649A67002482EE /* ostestTests */,
@@ -202,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				0E49974A1FD071E900716418 /* RootViewController.swift */,
+				0E49975E1FD076CA00716418 /* Views */,
 			);
 			name = "Root View Controller";
 			sourceTree = "<group>";
@@ -246,9 +254,9 @@
 		0E4997501FD0729E00716418 /* Favourites */ = {
 			isa = PBXGroup;
 			children = (
-				0E4997591FD0733200716418 /* Cell */,
 				0E4997531FD072D100716418 /* FavouritesViewController.swift */,
 				0E4997511FD072C400716418 /* Favourites.storyboard */,
+				0E4997591FD0733200716418 /* Cell */,
 			);
 			name = Favourites;
 			sourceTree = "<group>";
@@ -260,6 +268,15 @@
 				0E49975C1FD0739A00716418 /* FavouritesCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		0E49975E1FD076CA00716418 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E49975F1FD076E600716418 /* LoadingView.swift */,
+				0E4997611FD076F500716418 /* ErrorView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		3347D89D3F98F8DB3B983806 /* Pods */ = {
@@ -357,12 +374,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Maninder Soor";
 				TargetAttributes = {
 					00A3E2251E649A67002482EE = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					00A3E2391E649A67002482EE = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -406,6 +423,7 @@
 				00A3E22F1E649A67002482EE /* Set.storyboard in Resources */,
 				0E49974E1FD0723D00716418 /* SetViewCell.xib in Resources */,
 				0E4997581FD0732400716418 /* SetDetail.storyboard in Resources */,
+				0E4997641FD0777F00716418 /* Default-568h@2x.png in Resources */,
 				0E4997521FD072C400716418 /* Favourites.storyboard in Resources */,
 				0E49975D1FD0739A00716418 /* FavouritesCell.xib in Resources */,
 			);
@@ -623,11 +641,13 @@
 				006314761E657A3B00431015 /* Database.swift in Sources */,
 				006314791E657DED00431015 /* APISet.swift in Sources */,
 				0025DE071E65D64A005C7363 /* SetViewController.swift in Sources */,
+				0E4997601FD076E600716418 /* LoadingView.swift in Sources */,
 				0E49975B1FD0734E00716418 /* FavouritesCell.swift in Sources */,
 				0063147C1E65B84F00431015 /* RealmSet.swift in Sources */,
 				00A3E22A1E649A67002482EE /* AppDelegate.swift in Sources */,
 				0E49974B1FD071E900716418 /* RootViewController.swift in Sources */,
 				0E4997561FD0731100716418 /* SetDetailViewController.swift in Sources */,
+				0E4997621FD076F500716418 /* ErrorView.swift in Sources */,
 				0025DE0B1E65D8A4005C7363 /* SetViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,7 +704,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -692,7 +714,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -734,7 +760,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -742,7 +770,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -773,10 +805,13 @@
 			baseConfigurationReference = BD0732DC2533A5672E8CD41F /* Pods-ostest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ostest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ostermodern.ostest;
 				PRODUCT_NAME = Ostmodern;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -786,10 +821,13 @@
 			baseConfigurationReference = D45FB7F54F40BD3A0497E2E3 /* Pods-ostest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ostest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ostermodern.ostest;
 				PRODUCT_NAME = Ostmodern;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

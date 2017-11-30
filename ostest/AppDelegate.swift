@@ -15,9 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let log = SwiftyBeaver.self
     
+    //MARK: - UIApplicationDelegate Implementation
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         log.addDestination(ConsoleDestination())
         
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.black
+        window?.makeKeyAndVisible()
+        window?.rootViewController = RootViewController()
         return true
     }
 }
