@@ -28,4 +28,14 @@ extension SetDetailDataSource {
     public func episodeDescription() -> String? {
         return setInformation?.episodeDescription
     }
+    
+    public func episodeImageURL() -> URL? {
+        guard
+            let urlString = setInformation?.episodeImageURL,
+            let url = URL(string: urlString) else {
+            return nil
+        }
+        
+        return url
+    }
 }

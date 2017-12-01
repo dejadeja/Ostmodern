@@ -12,10 +12,12 @@ class SetDetail {
     //MARK: - Properties
     public var episodeTitle: String?
     public var episodeDescription: String?
+    public var episodeImageURL: String?
     
     //MARK: - Initialiser
-    init(title: String, description: String) {
+    init(title: String, description: String, imageURL: String) {
         self.episodeTitle = title
         self.episodeDescription = description
+        self.episodeImageURL = imageURL
     }
 }

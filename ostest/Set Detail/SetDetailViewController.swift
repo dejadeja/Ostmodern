@@ -28,6 +28,11 @@ class SetDetailViewController: UIViewController {
     private func initialiseElements() {
         episodeTitle?.text = setDetailDataSource?.episodeTitle()
         episodeDescription?.text = setDetailDataSource?.episodeDescription()
+        
+        guard let imageURL: URL = setDetailDataSource?.episodeImageURL() else {
+            return
+        }
+        episodeImageView?.af_setImage(withURL: imageURL)
     }
     
     //MARK: - Navigation
