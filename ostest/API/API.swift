@@ -24,6 +24,8 @@ enum BaseSetType: String {
  The API Class connects to the Skylark API to access content and present it type safe structs
  */
 class API {
+    //MARK: - Properties
+    
     /// Singleton instance
     static let instance = API()
     
@@ -32,6 +34,8 @@ class API {
     
     ///Temp debugger flag
     static let debug = true
+    
+    ///Set types
     static let defaultSetType = BaseSetType.Collections
     
     ///Single set callback
@@ -45,10 +49,10 @@ class API {
         static let baseURL = API.debug == true ? "http://feature-code-test.skylark-cms.qa.aws.ostmodern.co.uk:8000" : "http://featore-code-test.skylurk-cms.qa.aws.ostmodern.co.uk:8080"
     }
     
-    /**
-     Get sets
-     */
-    func getSets (completion : @escaping apiSetsCallback) {
+    //MARK: - Get Sets
+    
+    /// Get sets
+    func getSets(completion : @escaping apiSetsCallback) {
         let apiString = "\(Consts.baseURL)/api/sets/"
         log.verbose("Getting sets with URL \(apiString)")
         
@@ -72,6 +76,31 @@ class API {
             self?.updateSets(apiSets: apiSet!)
             //parseSetToRealmObject(apiSet: apiSet)
             completion(true, apiSet)
+        }
+    }
+    
+    //MARK: - Parse set data
+    private func parseSetJSON(json: JSON) -> [APISet]? {
+        guard let setArray = APISet.parse(json) else {
+            return nil
+        }
+        
+        return setArray
+    }
+    
+    //MARK: - Update Set
+    ///Updates an array of sets.
+    private func updateSets(apiSets: [APISet]) {
+        apiSets.forEach { set in
+            updateSet(set: set, completion: { (success, currentSet) in
+                guard
+                    success == true,
+                    let completedSet = currentSet else {
+                        return
+                }
+                
+                self.parseSetToRealmObject(apiSet: completedSet)
+            })
         }
     }
     
@@ -108,47 +137,17 @@ class API {
         }
     }
     
-    //MARK: - Parse set data
-    private func parseSetJSON(json: JSON) -> [APISet]? {
-        guard let setArray = APISet.parse(json) else {
-            return nil
-        }
-        
-        return setArray
-    }
-    
-    
+    //MARK: - Parse Set to Realm
     private func parseSetToRealmObject(apiSet: APISet) {
         var movies: [Movie] = []
-        
-        //apiSet.forEach { set in
-            let movie = Movie.initMovie(from: apiSet)
-            movies.append(movie)
-        //}
-        
+        let movie = Movie.initMovie(from: apiSet)
+        movies.append(movie)
         Database.saveSetData(movieSet: movies)
-    }
-    
-    private func updateSets(apiSets: [APISet]) {
-        var sets: [APISet] = []
-        
-        apiSets.forEach { set in
-            updateSet(set: set, completion: { (success, currentSet) in
-                guard
-                    success == true,
-                    currentSet != nil else {
-                        return
-                }
-                
-                sets.append(currentSet!)
-                self.parseSetToRealmObject(apiSet: currentSet!)
-            })
-        }
     }
 }
 
 extension API {
-    /// Gets a set for a given type.
+    ///TODO: - This function is used to get a set for a given name.
     func getSet(forName name: BaseSetType = API.defaultSetType, completion: @escaping apiSetCallback) {
         var selectedSet: [APISet]?
         
@@ -165,10 +164,6 @@ extension API {
                 completion(false, nil)
                 return
             }
-            
-            // completion(true, )
         }
-        
-        //completion(nil)
     }
 }

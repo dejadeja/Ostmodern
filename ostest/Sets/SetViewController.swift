@@ -14,7 +14,6 @@ import SwiftyBeaver
 /**
  Shows the list of Sets
  */
-// Shows the list of Sets
 final class SetViewController : UIViewController {
     //MARK: - IBOutlets
     @IBOutlet private weak var tblView : UITableView? {
@@ -34,7 +33,6 @@ final class SetViewController : UIViewController {
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.setupLoading(isLoading: false)
         self.setupData()
     }
     
@@ -71,12 +69,14 @@ extension SetViewController : UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.lblTitle?.text = dataSource.titleOfMovie(atIndex: indexPath.row)
-        cell.txtDescription?.text = dataSource.summaryOfMovie(atIndex: indexPath.row)
-        
-        if let imageURL = dataSource.imageURLForMovie(atIndex: indexPath.row) {
-            DispatchQueue.main.async {
-                cell.imgBackground?.af_setImage(withURL: imageURL)
+        DispatchQueue.main.async {
+            cell.lblTitle?.text = self.dataSource.titleOfMovie(atIndex: indexPath.row)
+            cell.txtDescription?.text = self.dataSource.summaryOfMovie(atIndex: indexPath.row)
+            
+            if let imageURL = self.dataSource.imageURLForMovie(atIndex: indexPath.row) {
+                DispatchQueue.main.async {
+                    cell.imgBackground?.af_setImage(withURL: imageURL)
+                }
             }
         }
         

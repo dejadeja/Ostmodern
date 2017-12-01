@@ -32,7 +32,10 @@ class SetDetailViewController: UIViewController {
         guard let imageURL: URL = setDetailDataSource?.episodeImageURL() else {
             return
         }
-        episodeImageView?.af_setImage(withURL: imageURL)
+        
+        DispatchQueue.main.async {
+            self.episodeImageView?.af_setImage(withURL: imageURL)
+        }
     }
     
     //MARK: - Navigation

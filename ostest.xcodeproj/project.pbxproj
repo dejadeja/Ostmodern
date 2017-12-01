@@ -158,7 +158,6 @@
 		00A3E21D1E649A67002482EE = {
 			isa = PBXGroup;
 			children = (
-				0E4997631FD0777F00716418 /* Default-568h@2x.png */,
 				00A3E2281E649A67002482EE /* ostest */,
 				0099B02A1E6610EF00AF914A /* Fonts */,
 				00A3E23D1E649A67002482EE /* ostestTests */,
@@ -234,6 +233,7 @@
 		0E4997491FD0716600716418 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0E4997631FD0777F00716418 /* Default-568h@2x.png */,
 				00A3E2351E649A67002482EE /* Info.plist */,
 				00A3E2301E649A67002482EE /* Assets.xcassets */,
 			);
