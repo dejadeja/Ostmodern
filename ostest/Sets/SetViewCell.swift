@@ -13,7 +13,6 @@ import UIKit
   The set view cell that shows a movie on the home screen
  */
 class SetViewCell : UITableViewCell {
-  
   /// Reuse identifier
   static let identifier = "SetViewCellIdentifier"
   
@@ -27,7 +26,5 @@ class SetViewCell : UITableViewCell {
   @IBOutlet weak var txtDescription : UITextView?
   
   /// Favourite
-  @IBOutlet weak var btnFavourite : UIButton?
-
-  
+  @IBOutlet weak var btnFavourite : UIButton?  
 }
